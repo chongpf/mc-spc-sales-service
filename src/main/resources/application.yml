@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: mc-spc-sales-service
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+server:
+  port: 9020
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+exchange-name:
+  mc-spc-order-service: exchange.order
+routing-key:
+  order-create:
+    mc-spc-order-service: queue.order.create.mc-spc-order-service
+  order-cancel:
+    mc-spc-order-service: queue.order.cancel.mc-spc-order-service
+  order-create-result:
+    mc-spc-sales-service: queue.order.create.result.mc-spc-sales-service
+  order-cancel-result:
+    mc-spc-sales-service: queue.order.cancel.result.mc-spc-sales-service
