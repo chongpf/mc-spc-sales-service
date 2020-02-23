@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McOrderExpressMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McOrderExpress">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="sales_goods_id" jdbcType="BIGINT" property="salesGoodsId" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_sku_id" jdbcType="BIGINT" property="goodsSkuId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="third_part_express_no" jdbcType="VARCHAR" property="thirdPartExpressNo" />
+    <result column="post_date" jdbcType="TIMESTAMP" property="postDate" />
+    <result column="sender" jdbcType="VARCHAR" property="sender" />
+    <result column="sender_address" jdbcType="VARCHAR" property="senderAddress" />
+    <result column="sender_phone" jdbcType="VARCHAR" property="senderPhone" />
+    <result column="receipt_date" jdbcType="TIMESTAMP" property="receiptDate" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_order_express
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McOrderExpress">
+    insert into mc_order_express (id, order_id, member_id, 
+      sales_goods_id, goods_id, goods_sku_id, 
+      goods_no, third_part_express_no, post_date, 
+      sender, sender_address, sender_phone, 
+      receipt_date, receiver, receiver_address, 
+      receiver_phone, is_delete, create_time, 
+      create_user, update_time, update_user
+      )
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, 
+      #{salesGoodsId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{goodsSkuId,jdbcType=BIGINT}, 
+      #{goodsNo,jdbcType=VARCHAR}, #{thirdPartExpressNo,jdbcType=VARCHAR}, #{postDate,jdbcType=TIMESTAMP}, 
+      #{sender,jdbcType=VARCHAR}, #{senderAddress,jdbcType=VARCHAR}, #{senderPhone,jdbcType=VARCHAR}, 
+      #{receiptDate,jdbcType=TIMESTAMP}, #{receiver,jdbcType=VARCHAR}, #{receiverAddress,jdbcType=VARCHAR}, 
+      #{receiverPhone,jdbcType=VARCHAR}, #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McOrderExpress">
+    update mc_order_express
+    set order_id = #{orderId,jdbcType=BIGINT},
+      member_id = #{memberId,jdbcType=BIGINT},
+      sales_goods_id = #{salesGoodsId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_sku_id = #{goodsSkuId,jdbcType=BIGINT},
+      goods_no = #{goodsNo,jdbcType=VARCHAR},
+      third_part_express_no = #{thirdPartExpressNo,jdbcType=VARCHAR},
+      post_date = #{postDate,jdbcType=TIMESTAMP},
+      sender = #{sender,jdbcType=VARCHAR},
+      sender_address = #{senderAddress,jdbcType=VARCHAR},
+      sender_phone = #{senderPhone,jdbcType=VARCHAR},
+      receipt_date = #{receiptDate,jdbcType=TIMESTAMP},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    third_part_express_no, post_date, sender, sender_address, sender_phone, receipt_date, 
+    receiver, receiver_address, receiver_phone, is_delete, create_time, create_user, 
+    update_time, update_user
+    from mc_order_express
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    third_part_express_no, post_date, sender, sender_address, sender_phone, receipt_date, 
+    receiver, receiver_address, receiver_phone, is_delete, create_time, create_user, 
+    update_time, update_user
+    from mc_order_express
+  </select>
+</mapper>

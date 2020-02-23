@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McSalesGoodsTicketMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McSalesGoodsTicket">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sales_goods_id" jdbcType="BIGINT" property="salesGoodsId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_sku_id" jdbcType="INTEGER" property="goodsSkuId" />
+    <result column="goods_sku_name" jdbcType="VARCHAR" property="goodsSkuName" />
+    <result column="ticket_type" jdbcType="INTEGER" property="ticketType" />
+    <result column="ticket_type_name" jdbcType="VARCHAR" property="ticketTypeName" />
+    <result column="wait_days_after_activation" jdbcType="TINYINT" property="waitDaysAfterActivation" />
+    <result column="date_activation" jdbcType="DATE" property="dateActivation" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="use_from_date" jdbcType="DATE" property="useFromDate" />
+    <result column="valid_date" jdbcType="DATE" property="validDate" />
+    <result column="consume_weekdays" jdbcType="VARCHAR" property="consumeWeekdays" />
+    <result column="consume_start_time" jdbcType="TIME" property="consumeStartTime" />
+    <result column="consume_end_time" jdbcType="TIME" property="consumeEndTime" />
+    <result column="consume_sport_ids" jdbcType="VARCHAR" property="consumeSportIds" />
+    <result column="consumeAvenueIds" jdbcType="VARCHAR" property="consumeavenueids" />
+    <result column="max_consume_times_perday" jdbcType="INTEGER" property="maxConsumeTimesPerday" />
+    <result column="single_consume_duration" jdbcType="INTEGER" property="singleConsumeDuration" />
+    <result column="is_overtime_charge" jdbcType="CHAR" property="isOvertimeCharge" />
+    <result column="overtime_nocharge_duration" jdbcType="INTEGER" property="overtimeNochargeDuration" />
+    <result column="single_overtime_duration" jdbcType="INTEGER" property="singleOvertimeDuration" />
+    <result column="single_overtime_money" jdbcType="DECIMAL" property="singleOvertimeMoney" />
+    <result column="cosume_status" jdbcType="CHAR" property="cosumeStatus" />
+    <result column="print_date" jdbcType="TIMESTAMP" property="printDate" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_sales_goods_ticket
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsTicket">
+    insert into mc_sales_goods_ticket (id, sales_goods_id, goods_no, 
+      goods_id, goods_name, goods_sku_id, 
+      goods_sku_name, ticket_type, ticket_type_name, 
+      wait_days_after_activation, date_activation, member_id, 
+      gender, use_from_date, valid_date, 
+      consume_weekdays, consume_start_time, consume_end_time, 
+      consume_sport_ids, consumeAvenueIds, max_consume_times_perday, 
+      single_consume_duration, is_overtime_charge, overtime_nocharge_duration, 
+      single_overtime_duration, single_overtime_money, 
+      cosume_status, print_date, is_delete, 
+      create_time, create_user, update_time, 
+      update_user)
+    values (#{id,jdbcType=BIGINT}, #{salesGoodsId,jdbcType=BIGINT}, #{goodsNo,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsSkuId,jdbcType=INTEGER}, 
+      #{goodsSkuName,jdbcType=VARCHAR}, #{ticketType,jdbcType=INTEGER}, #{ticketTypeName,jdbcType=VARCHAR}, 
+      #{waitDaysAfterActivation,jdbcType=TINYINT}, #{dateActivation,jdbcType=DATE}, #{memberId,jdbcType=BIGINT}, 
+      #{gender,jdbcType=CHAR}, #{useFromDate,jdbcType=DATE}, #{validDate,jdbcType=DATE}, 
+      #{consumeWeekdays,jdbcType=VARCHAR}, #{consumeStartTime,jdbcType=TIME}, #{consumeEndTime,jdbcType=TIME}, 
+      #{consumeSportIds,jdbcType=VARCHAR}, #{consumeavenueids,jdbcType=VARCHAR}, #{maxConsumeTimesPerday,jdbcType=INTEGER}, 
+      #{singleConsumeDuration,jdbcType=INTEGER}, #{isOvertimeCharge,jdbcType=CHAR}, #{overtimeNochargeDuration,jdbcType=INTEGER}, 
+      #{singleOvertimeDuration,jdbcType=INTEGER}, #{singleOvertimeMoney,jdbcType=DECIMAL}, 
+      #{cosumeStatus,jdbcType=CHAR}, #{printDate,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsTicket">
+    update mc_sales_goods_ticket
+    set sales_goods_id = #{salesGoodsId,jdbcType=BIGINT},
+      goods_no = #{goodsNo,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sku_id = #{goodsSkuId,jdbcType=INTEGER},
+      goods_sku_name = #{goodsSkuName,jdbcType=VARCHAR},
+      ticket_type = #{ticketType,jdbcType=INTEGER},
+      ticket_type_name = #{ticketTypeName,jdbcType=VARCHAR},
+      wait_days_after_activation = #{waitDaysAfterActivation,jdbcType=TINYINT},
+      date_activation = #{dateActivation,jdbcType=DATE},
+      member_id = #{memberId,jdbcType=BIGINT},
+      gender = #{gender,jdbcType=CHAR},
+      use_from_date = #{useFromDate,jdbcType=DATE},
+      valid_date = #{validDate,jdbcType=DATE},
+      consume_weekdays = #{consumeWeekdays,jdbcType=VARCHAR},
+      consume_start_time = #{consumeStartTime,jdbcType=TIME},
+      consume_end_time = #{consumeEndTime,jdbcType=TIME},
+      consume_sport_ids = #{consumeSportIds,jdbcType=VARCHAR},
+      consumeAvenueIds = #{consumeavenueids,jdbcType=VARCHAR},
+      max_consume_times_perday = #{maxConsumeTimesPerday,jdbcType=INTEGER},
+      single_consume_duration = #{singleConsumeDuration,jdbcType=INTEGER},
+      is_overtime_charge = #{isOvertimeCharge,jdbcType=CHAR},
+      overtime_nocharge_duration = #{overtimeNochargeDuration,jdbcType=INTEGER},
+      single_overtime_duration = #{singleOvertimeDuration,jdbcType=INTEGER},
+      single_overtime_money = #{singleOvertimeMoney,jdbcType=DECIMAL},
+      cosume_status = #{cosumeStatus,jdbcType=CHAR},
+      print_date = #{printDate,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sales_goods_id, goods_no, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    ticket_type, ticket_type_name, wait_days_after_activation, date_activation, member_id, 
+    gender, use_from_date, valid_date, consume_weekdays, consume_start_time, consume_end_time, 
+    consume_sport_ids, consumeAvenueIds, max_consume_times_perday, single_consume_duration, 
+    is_overtime_charge, overtime_nocharge_duration, single_overtime_duration, single_overtime_money, 
+    cosume_status, print_date, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_ticket
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sales_goods_id, goods_no, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    ticket_type, ticket_type_name, wait_days_after_activation, date_activation, member_id, 
+    gender, use_from_date, valid_date, consume_weekdays, consume_start_time, consume_end_time, 
+    consume_sport_ids, consumeAvenueIds, max_consume_times_perday, single_consume_duration, 
+    is_overtime_charge, overtime_nocharge_duration, single_overtime_duration, single_overtime_money, 
+    cosume_status, print_date, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_ticket
+  </select>
+</mapper>

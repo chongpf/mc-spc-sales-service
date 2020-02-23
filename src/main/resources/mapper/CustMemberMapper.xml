@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.CustMemberMapper">
+    <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McMember">
+        <result column="id" jdbcType="BIGINT" property="id"></result>
+        <result column="name" jdbcType="VARCHAR" property="name"></result>
+        <result column="age" jdbcType="INTEGER" property="age"></result>
+        <result column="gender" jdbcType="CHAR" property="gender"></result>
+        <result column="is_delete" jdbcType="CHAR" property="isDelete"></result>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"></result>
+        <result column="create_user" jdbcType="BIGINT" property="createUser"></result>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"></result>
+        <result column="update_user" jdbcType="BIGINT" property="updateUser"></result>
+    </resultMap>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id,`name`,age,gender,is_delete,create_time,create_user,update_time,update_user
+        from mc_member
+    </select>
+    <select id="selectOne" parameterType="java.lang.Long" resultType="com.chong.mcspcgoodsservice.entity.McMember">
+        select id as id,`name` as `name`,age as age,gender as gender,is_delete as isDelte,
+            create_time as createTime,create_user as createUser,update_time as updateTime,update_user as updateUser
+        from mc_member
+        where id=#{id}
+    </select>
+    <insert id="insertOne" parameterType="com.chong.mcspcgoodsservice.entity.McMember">
+         insert into
+             mc_member(id,`name`,age,gender,is_delete,create_time,create_user,update_time,update_user)
+         values(
+             #{id},#{name},#{age},#{gender},#{isDelete},#{createTime},#{createUser},#{updateTime},#{updateUser}
+         )
+    </insert>
+    <update id="updateOne" parameterType="java.util.Map">
+        update mc_member
+        set `name`=#{name},
+            gender=#{gender},
+            age=#{age}
+        where
+            id=#{id}
+    </update>
+    <delete id="deleteOne" parameterType="java.lang.Long">
+        delete from mc_member where id=#{id}
+    </delete>
+</mapper>

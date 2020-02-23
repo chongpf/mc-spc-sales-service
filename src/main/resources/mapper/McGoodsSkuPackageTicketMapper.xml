@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McGoodsSkuPackageTicketMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McGoodsSkuPackageTicket">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_sku_id" jdbcType="INTEGER" property="goodsSkuId" />
+    <result column="sub_tickets" jdbcType="VARCHAR" property="subTickets" />
+    <result column="use_package_ticket_rule" jdbcType="CHAR" property="usePackageTicketRule" />
+    <result column="wait_days_after_activation" jdbcType="TINYINT" property="waitDaysAfterActivation" />
+    <result column="use_date_range_type" jdbcType="CHAR" property="useDateRangeType" />
+    <result column="use_fix_days" jdbcType="INTEGER" property="useFixDays" />
+    <result column="use_fix_from_date" jdbcType="DATE" property="useFixFromDate" />
+    <result column="use_fix_to_date" jdbcType="DATE" property="useFixToDate" />
+    <result column="consume_weekday_type" jdbcType="CHAR" property="consumeWeekdayType" />
+    <result column="consume_weekdays" jdbcType="VARCHAR" property="consumeWeekdays" />
+    <result column="consume_start_time" jdbcType="TIME" property="consumeStartTime" />
+    <result column="consume_end_time" jdbcType="TIME" property="consumeEndTime" />
+    <result column="consume_sport_type" jdbcType="CHAR" property="consumeSportType" />
+    <result column="consume_sport_ids" jdbcType="VARCHAR" property="consumeSportIds" />
+    <result column="consumeAvenueIds" jdbcType="VARCHAR" property="consumeavenueids" />
+    <result column="max_consume_times_perday" jdbcType="INTEGER" property="maxConsumeTimesPerday" />
+    <result column="single_consume_duration" jdbcType="INTEGER" property="singleConsumeDuration" />
+    <result column="is_overtime_charge" jdbcType="CHAR" property="isOvertimeCharge" />
+    <result column="overtime_nocharge_duration" jdbcType="INTEGER" property="overtimeNochargeDuration" />
+    <result column="single_overtime_duration" jdbcType="INTEGER" property="singleOvertimeDuration" />
+    <result column="single_overtime_money" jdbcType="DECIMAL" property="singleOvertimeMoney" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_goods_sku_package_ticket
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSkuPackageTicket">
+    insert into mc_goods_sku_package_ticket (id, goods_id, goods_sku_id, 
+      sub_tickets, use_package_ticket_rule, wait_days_after_activation, 
+      use_date_range_type, use_fix_days, use_fix_from_date, 
+      use_fix_to_date, consume_weekday_type, consume_weekdays, 
+      consume_start_time, consume_end_time, consume_sport_type, 
+      consume_sport_ids, consumeAvenueIds, max_consume_times_perday, 
+      single_consume_duration, is_overtime_charge, overtime_nocharge_duration, 
+      single_overtime_duration, single_overtime_money, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{goodsId,jdbcType=INTEGER}, #{goodsSkuId,jdbcType=INTEGER}, 
+      #{subTickets,jdbcType=VARCHAR}, #{usePackageTicketRule,jdbcType=CHAR}, #{waitDaysAfterActivation,jdbcType=TINYINT}, 
+      #{useDateRangeType,jdbcType=CHAR}, #{useFixDays,jdbcType=INTEGER}, #{useFixFromDate,jdbcType=DATE}, 
+      #{useFixToDate,jdbcType=DATE}, #{consumeWeekdayType,jdbcType=CHAR}, #{consumeWeekdays,jdbcType=VARCHAR}, 
+      #{consumeStartTime,jdbcType=TIME}, #{consumeEndTime,jdbcType=TIME}, #{consumeSportType,jdbcType=CHAR}, 
+      #{consumeSportIds,jdbcType=VARCHAR}, #{consumeavenueids,jdbcType=VARCHAR}, #{maxConsumeTimesPerday,jdbcType=INTEGER}, 
+      #{singleConsumeDuration,jdbcType=INTEGER}, #{isOvertimeCharge,jdbcType=CHAR}, #{overtimeNochargeDuration,jdbcType=INTEGER}, 
+      #{singleOvertimeDuration,jdbcType=INTEGER}, #{singleOvertimeMoney,jdbcType=DECIMAL}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSkuPackageTicket">
+    update mc_goods_sku_package_ticket
+    set goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_sku_id = #{goodsSkuId,jdbcType=INTEGER},
+      sub_tickets = #{subTickets,jdbcType=VARCHAR},
+      use_package_ticket_rule = #{usePackageTicketRule,jdbcType=CHAR},
+      wait_days_after_activation = #{waitDaysAfterActivation,jdbcType=TINYINT},
+      use_date_range_type = #{useDateRangeType,jdbcType=CHAR},
+      use_fix_days = #{useFixDays,jdbcType=INTEGER},
+      use_fix_from_date = #{useFixFromDate,jdbcType=DATE},
+      use_fix_to_date = #{useFixToDate,jdbcType=DATE},
+      consume_weekday_type = #{consumeWeekdayType,jdbcType=CHAR},
+      consume_weekdays = #{consumeWeekdays,jdbcType=VARCHAR},
+      consume_start_time = #{consumeStartTime,jdbcType=TIME},
+      consume_end_time = #{consumeEndTime,jdbcType=TIME},
+      consume_sport_type = #{consumeSportType,jdbcType=CHAR},
+      consume_sport_ids = #{consumeSportIds,jdbcType=VARCHAR},
+      consumeAvenueIds = #{consumeavenueids,jdbcType=VARCHAR},
+      max_consume_times_perday = #{maxConsumeTimesPerday,jdbcType=INTEGER},
+      single_consume_duration = #{singleConsumeDuration,jdbcType=INTEGER},
+      is_overtime_charge = #{isOvertimeCharge,jdbcType=CHAR},
+      overtime_nocharge_duration = #{overtimeNochargeDuration,jdbcType=INTEGER},
+      single_overtime_duration = #{singleOvertimeDuration,jdbcType=INTEGER},
+      single_overtime_money = #{singleOvertimeMoney,jdbcType=DECIMAL},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_id, sub_tickets, use_package_ticket_rule, wait_days_after_activation, 
+    use_date_range_type, use_fix_days, use_fix_from_date, use_fix_to_date, consume_weekday_type, 
+    consume_weekdays, consume_start_time, consume_end_time, consume_sport_type, consume_sport_ids, 
+    consumeAvenueIds, max_consume_times_perday, single_consume_duration, is_overtime_charge, 
+    overtime_nocharge_duration, single_overtime_duration, single_overtime_money, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_goods_sku_package_ticket
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_id, sub_tickets, use_package_ticket_rule, wait_days_after_activation, 
+    use_date_range_type, use_fix_days, use_fix_from_date, use_fix_to_date, consume_weekday_type, 
+    consume_weekdays, consume_start_time, consume_end_time, consume_sport_type, consume_sport_ids, 
+    consumeAvenueIds, max_consume_times_perday, single_consume_duration, is_overtime_charge, 
+    overtime_nocharge_duration, single_overtime_duration, single_overtime_money, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_goods_sku_package_ticket
+  </select>
+</mapper>

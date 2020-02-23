@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McOrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McOrderDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="sales_goods_id" jdbcType="BIGINT" property="salesGoodsId" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_sku_id" jdbcType="BIGINT" property="goodsSkuId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice" />
+    <result column="goods_money" jdbcType="DECIMAL" property="goodsMoney" />
+    <result column="is_active" jdbcType="CHAR" property="isActive" />
+    <result column="payment_status" jdbcType="CHAR" property="paymentStatus" />
+    <result column="debit_acount" jdbcType="VARCHAR" property="debitAcount" />
+    <result column="cridet_acount" jdbcType="VARCHAR" property="cridetAcount" />
+    <result column="refound_status" jdbcType="CHAR" property="refoundStatus" />
+    <result column="refound_money" jdbcType="DECIMAL" property="refoundMoney" />
+    <result column="express_delivery_status" jdbcType="CHAR" property="expressDeliveryStatus" />
+    <result column="is_in_package_goods" jdbcType="CHAR" property="isInPackageGoods" />
+    <result column="package_goods_no" jdbcType="BIGINT" property="packageGoodsNo" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McOrderDetail">
+    insert into mc_order_detail (id, order_id, member_id, 
+      sales_goods_id, goods_id, goods_sku_id, 
+      goods_no, goods_price, goods_money, 
+      is_active, payment_status, debit_acount, 
+      cridet_acount, refound_status, refound_money, 
+      express_delivery_status, is_in_package_goods, package_goods_no, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, 
+      #{salesGoodsId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{goodsSkuId,jdbcType=BIGINT}, 
+      #{goodsNo,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, #{goodsMoney,jdbcType=DECIMAL}, 
+      #{isActive,jdbcType=CHAR}, #{paymentStatus,jdbcType=CHAR}, #{debitAcount,jdbcType=VARCHAR}, 
+      #{cridetAcount,jdbcType=VARCHAR}, #{refoundStatus,jdbcType=CHAR}, #{refoundMoney,jdbcType=DECIMAL}, 
+      #{expressDeliveryStatus,jdbcType=CHAR}, #{isInPackageGoods,jdbcType=CHAR}, #{packageGoodsNo,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McOrderDetail">
+    update mc_order_detail
+    set order_id = #{orderId,jdbcType=BIGINT},
+      member_id = #{memberId,jdbcType=BIGINT},
+      sales_goods_id = #{salesGoodsId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_sku_id = #{goodsSkuId,jdbcType=BIGINT},
+      goods_no = #{goodsNo,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      goods_money = #{goodsMoney,jdbcType=DECIMAL},
+      is_active = #{isActive,jdbcType=CHAR},
+      payment_status = #{paymentStatus,jdbcType=CHAR},
+      debit_acount = #{debitAcount,jdbcType=VARCHAR},
+      cridet_acount = #{cridetAcount,jdbcType=VARCHAR},
+      refound_status = #{refoundStatus,jdbcType=CHAR},
+      refound_money = #{refoundMoney,jdbcType=DECIMAL},
+      express_delivery_status = #{expressDeliveryStatus,jdbcType=CHAR},
+      is_in_package_goods = #{isInPackageGoods,jdbcType=CHAR},
+      package_goods_no = #{packageGoodsNo,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    goods_price, goods_money, is_active, payment_status, debit_acount, cridet_acount, 
+    refound_status, refound_money, express_delivery_status, is_in_package_goods, package_goods_no, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    goods_price, goods_money, is_active, payment_status, debit_acount, cridet_acount, 
+    refound_status, refound_money, express_delivery_status, is_in_package_goods, package_goods_no, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_order_detail
+  </select>
+</mapper>

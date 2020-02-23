@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McSalesGoodsMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McSalesGoods">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="goods_type_id" jdbcType="INTEGER" property="goodsTypeId" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_sku_id" jdbcType="BIGINT" property="goodsSkuId" />
+    <result column="goods_sku_name" jdbcType="VARCHAR" property="goodsSkuName" />
+    <result column="sales_price" jdbcType="DECIMAL" property="salesPrice" />
+    <result column="sales_unit" jdbcType="VARCHAR" property="salesUnit" />
+    <result column="sales_channel_id" jdbcType="INTEGER" property="salesChannelId" />
+    <result column="sales_platform_id" jdbcType="INTEGER" property="salesPlatformId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_sales_goods
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoods">
+    insert into mc_sales_goods (id, goods_no, goods_type_id, 
+      goods_id, goods_name, goods_sku_id, 
+      goods_sku_name, sales_price, sales_unit, 
+      sales_channel_id, sales_platform_id, member_id, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{goodsNo,jdbcType=VARCHAR}, #{goodsTypeId,jdbcType=INTEGER}, 
+      #{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsSkuId,jdbcType=BIGINT}, 
+      #{goodsSkuName,jdbcType=VARCHAR}, #{salesPrice,jdbcType=DECIMAL}, #{salesUnit,jdbcType=VARCHAR}, 
+      #{salesChannelId,jdbcType=INTEGER}, #{salesPlatformId,jdbcType=INTEGER}, #{memberId,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoods">
+    update mc_sales_goods
+    set goods_no = #{goodsNo,jdbcType=VARCHAR},
+      goods_type_id = #{goodsTypeId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sku_id = #{goodsSkuId,jdbcType=BIGINT},
+      goods_sku_name = #{goodsSkuName,jdbcType=VARCHAR},
+      sales_price = #{salesPrice,jdbcType=DECIMAL},
+      sales_unit = #{salesUnit,jdbcType=VARCHAR},
+      sales_channel_id = #{salesChannelId,jdbcType=INTEGER},
+      sales_platform_id = #{salesPlatformId,jdbcType=INTEGER},
+      member_id = #{memberId,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_no, goods_type_id, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    sales_price, sales_unit, sales_channel_id, sales_platform_id, member_id, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_sales_goods
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_no, goods_type_id, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    sales_price, sales_unit, sales_channel_id, sales_platform_id, member_id, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_sales_goods
+  </select>
+</mapper>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McOrderRefoundMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McOrderRefound">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="sales_goods_id" jdbcType="BIGINT" property="salesGoodsId" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_sku_id" jdbcType="BIGINT" property="goodsSkuId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="refound_apply_date" jdbcType="TIMESTAMP" property="refoundApplyDate" />
+    <result column="refound_apply_money" jdbcType="DECIMAL" property="refoundApplyMoney" />
+    <result column="refound_apply_notes" jdbcType="VARCHAR" property="refoundApplyNotes" />
+    <result column="refound_date" jdbcType="TIMESTAMP" property="refoundDate" />
+    <result column="refound_money" jdbcType="DECIMAL" property="refoundMoney" />
+    <result column="refound_notes" jdbcType="VARCHAR" property="refoundNotes" />
+    <result column="refound_status" jdbcType="CHAR" property="refoundStatus" />
+    <result column="refound_channel" jdbcType="INTEGER" property="refoundChannel" />
+    <result column="refound_platform" jdbcType="INTEGER" property="refoundPlatform" />
+    <result column="refound_type" jdbcType="CHAR" property="refoundType" />
+    <result column="refound_point" jdbcType="INTEGER" property="refoundPoint" />
+    <result column="debit_acount" jdbcType="VARCHAR" property="debitAcount" />
+    <result column="cridet_acount" jdbcType="VARCHAR" property="cridetAcount" />
+    <result column="third_part_refound_no" jdbcType="VARCHAR" property="thirdPartRefoundNo" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_order_refound
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McOrderRefound">
+    insert into mc_order_refound (id, order_id, member_id, 
+      sales_goods_id, goods_id, goods_sku_id, 
+      goods_no, refound_apply_date, refound_apply_money, 
+      refound_apply_notes, refound_date, refound_money, 
+      refound_notes, refound_status, refound_channel, 
+      refound_platform, refound_type, refound_point, 
+      debit_acount, cridet_acount, third_part_refound_no, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, 
+      #{salesGoodsId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{goodsSkuId,jdbcType=BIGINT}, 
+      #{goodsNo,jdbcType=VARCHAR}, #{refoundApplyDate,jdbcType=TIMESTAMP}, #{refoundApplyMoney,jdbcType=DECIMAL}, 
+      #{refoundApplyNotes,jdbcType=VARCHAR}, #{refoundDate,jdbcType=TIMESTAMP}, #{refoundMoney,jdbcType=DECIMAL}, 
+      #{refoundNotes,jdbcType=VARCHAR}, #{refoundStatus,jdbcType=CHAR}, #{refoundChannel,jdbcType=INTEGER}, 
+      #{refoundPlatform,jdbcType=INTEGER}, #{refoundType,jdbcType=CHAR}, #{refoundPoint,jdbcType=INTEGER}, 
+      #{debitAcount,jdbcType=VARCHAR}, #{cridetAcount,jdbcType=VARCHAR}, #{thirdPartRefoundNo,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McOrderRefound">
+    update mc_order_refound
+    set order_id = #{orderId,jdbcType=BIGINT},
+      member_id = #{memberId,jdbcType=BIGINT},
+      sales_goods_id = #{salesGoodsId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_sku_id = #{goodsSkuId,jdbcType=BIGINT},
+      goods_no = #{goodsNo,jdbcType=VARCHAR},
+      refound_apply_date = #{refoundApplyDate,jdbcType=TIMESTAMP},
+      refound_apply_money = #{refoundApplyMoney,jdbcType=DECIMAL},
+      refound_apply_notes = #{refoundApplyNotes,jdbcType=VARCHAR},
+      refound_date = #{refoundDate,jdbcType=TIMESTAMP},
+      refound_money = #{refoundMoney,jdbcType=DECIMAL},
+      refound_notes = #{refoundNotes,jdbcType=VARCHAR},
+      refound_status = #{refoundStatus,jdbcType=CHAR},
+      refound_channel = #{refoundChannel,jdbcType=INTEGER},
+      refound_platform = #{refoundPlatform,jdbcType=INTEGER},
+      refound_type = #{refoundType,jdbcType=CHAR},
+      refound_point = #{refoundPoint,jdbcType=INTEGER},
+      debit_acount = #{debitAcount,jdbcType=VARCHAR},
+      cridet_acount = #{cridetAcount,jdbcType=VARCHAR},
+      third_part_refound_no = #{thirdPartRefoundNo,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    refound_apply_date, refound_apply_money, refound_apply_notes, refound_date, refound_money, 
+    refound_notes, refound_status, refound_channel, refound_platform, refound_type, refound_point, 
+    debit_acount, cridet_acount, third_part_refound_no, is_delete, create_time, create_user, 
+    update_time, update_user
+    from mc_order_refound
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, order_id, member_id, sales_goods_id, goods_id, goods_sku_id, goods_no, 
+    refound_apply_date, refound_apply_money, refound_apply_notes, refound_date, refound_money, 
+    refound_notes, refound_status, refound_channel, refound_platform, refound_type, refound_point, 
+    debit_acount, cridet_acount, third_part_refound_no, is_delete, create_time, create_user, 
+    update_time, update_user
+    from mc_order_refound
+  </select>
+</mapper>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McSalesGoodsCardMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McSalesGoodsCard">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sales_goods_id" jdbcType="BIGINT" property="salesGoodsId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_sku_id" jdbcType="INTEGER" property="goodsSkuId" />
+    <result column="goods_sku_name" jdbcType="VARCHAR" property="goodsSkuName" />
+    <result column="card_type" jdbcType="INTEGER" property="cardType" />
+    <result column="card_type_name" jdbcType="VARCHAR" property="cardTypeName" />
+    <result column="wait_days_after_activation" jdbcType="TINYINT" property="waitDaysAfterActivation" />
+    <result column="date_activation" jdbcType="DATE" property="dateActivation" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="use_from_date" jdbcType="DATE" property="useFromDate" />
+    <result column="valid_day" jdbcType="DATE" property="validDay" />
+    <result column="consume_weekdays" jdbcType="VARCHAR" property="consumeWeekdays" />
+    <result column="consume_start_time" jdbcType="TIME" property="consumeStartTime" />
+    <result column="consume_end_time" jdbcType="TIME" property="consumeEndTime" />
+    <result column="consume_sport_ids" jdbcType="VARCHAR" property="consumeSportIds" />
+    <result column="consumeAvenueIds" jdbcType="VARCHAR" property="consumeavenueids" />
+    <result column="max_consume_times_perday" jdbcType="INTEGER" property="maxConsumeTimesPerday" />
+    <result column="credit_consume_times" jdbcType="INTEGER" property="creditConsumeTimes" />
+    <result column="max_consume_money_perday" jdbcType="DECIMAL" property="maxConsumeMoneyPerday" />
+    <result column="credit_consume_money" jdbcType="DECIMAL" property="creditConsumeMoney" />
+    <result column="single_consume_duration" jdbcType="INTEGER" property="singleConsumeDuration" />
+    <result column="is_overtime_charge" jdbcType="CHAR" property="isOvertimeCharge" />
+    <result column="overtime_nocharge_duration" jdbcType="INTEGER" property="overtimeNochargeDuration" />
+    <result column="single_overtime_duration" jdbcType="INTEGER" property="singleOvertimeDuration" />
+    <result column="single_overtime_money" jdbcType="DECIMAL" property="singleOvertimeMoney" />
+    <result column="balance_consume_times" jdbcType="INTEGER" property="balanceConsumeTimes" />
+    <result column="balance_consume_money" jdbcType="DECIMAL" property="balanceConsumeMoney" />
+    <result column="last_consume_date" jdbcType="DATE" property="lastConsumeDate" />
+    <result column="last_date_consume_times" jdbcType="INTEGER" property="lastDateConsumeTimes" />
+    <result column="last_date_consume_money" jdbcType="DECIMAL" property="lastDateConsumeMoney" />
+    <result column="cosume_status" jdbcType="CHAR" property="cosumeStatus" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_sales_goods_card
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsCard">
+    insert into mc_sales_goods_card (id, sales_goods_id, goods_no, 
+      goods_id, goods_name, goods_sku_id, 
+      goods_sku_name, card_type, card_type_name, 
+      wait_days_after_activation, date_activation, member_id, 
+      gender, use_from_date, valid_day, 
+      consume_weekdays, consume_start_time, consume_end_time, 
+      consume_sport_ids, consumeAvenueIds, max_consume_times_perday, 
+      credit_consume_times, max_consume_money_perday, 
+      credit_consume_money, single_consume_duration, 
+      is_overtime_charge, overtime_nocharge_duration, 
+      single_overtime_duration, single_overtime_money, 
+      balance_consume_times, balance_consume_money, 
+      last_consume_date, last_date_consume_times, last_date_consume_money, 
+      cosume_status, is_delete, create_time, 
+      create_user, update_time, update_user
+      )
+    values (#{id,jdbcType=BIGINT}, #{salesGoodsId,jdbcType=BIGINT}, #{goodsNo,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsSkuId,jdbcType=INTEGER}, 
+      #{goodsSkuName,jdbcType=VARCHAR}, #{cardType,jdbcType=INTEGER}, #{cardTypeName,jdbcType=VARCHAR}, 
+      #{waitDaysAfterActivation,jdbcType=TINYINT}, #{dateActivation,jdbcType=DATE}, #{memberId,jdbcType=BIGINT}, 
+      #{gender,jdbcType=CHAR}, #{useFromDate,jdbcType=DATE}, #{validDay,jdbcType=DATE}, 
+      #{consumeWeekdays,jdbcType=VARCHAR}, #{consumeStartTime,jdbcType=TIME}, #{consumeEndTime,jdbcType=TIME}, 
+      #{consumeSportIds,jdbcType=VARCHAR}, #{consumeavenueids,jdbcType=VARCHAR}, #{maxConsumeTimesPerday,jdbcType=INTEGER}, 
+      #{creditConsumeTimes,jdbcType=INTEGER}, #{maxConsumeMoneyPerday,jdbcType=DECIMAL}, 
+      #{creditConsumeMoney,jdbcType=DECIMAL}, #{singleConsumeDuration,jdbcType=INTEGER}, 
+      #{isOvertimeCharge,jdbcType=CHAR}, #{overtimeNochargeDuration,jdbcType=INTEGER}, 
+      #{singleOvertimeDuration,jdbcType=INTEGER}, #{singleOvertimeMoney,jdbcType=DECIMAL}, 
+      #{balanceConsumeTimes,jdbcType=INTEGER}, #{balanceConsumeMoney,jdbcType=DECIMAL}, 
+      #{lastConsumeDate,jdbcType=DATE}, #{lastDateConsumeTimes,jdbcType=INTEGER}, #{lastDateConsumeMoney,jdbcType=DECIMAL}, 
+      #{cosumeStatus,jdbcType=CHAR}, #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsCard">
+    update mc_sales_goods_card
+    set sales_goods_id = #{salesGoodsId,jdbcType=BIGINT},
+      goods_no = #{goodsNo,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sku_id = #{goodsSkuId,jdbcType=INTEGER},
+      goods_sku_name = #{goodsSkuName,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=INTEGER},
+      card_type_name = #{cardTypeName,jdbcType=VARCHAR},
+      wait_days_after_activation = #{waitDaysAfterActivation,jdbcType=TINYINT},
+      date_activation = #{dateActivation,jdbcType=DATE},
+      member_id = #{memberId,jdbcType=BIGINT},
+      gender = #{gender,jdbcType=CHAR},
+      use_from_date = #{useFromDate,jdbcType=DATE},
+      valid_day = #{validDay,jdbcType=DATE},
+      consume_weekdays = #{consumeWeekdays,jdbcType=VARCHAR},
+      consume_start_time = #{consumeStartTime,jdbcType=TIME},
+      consume_end_time = #{consumeEndTime,jdbcType=TIME},
+      consume_sport_ids = #{consumeSportIds,jdbcType=VARCHAR},
+      consumeAvenueIds = #{consumeavenueids,jdbcType=VARCHAR},
+      max_consume_times_perday = #{maxConsumeTimesPerday,jdbcType=INTEGER},
+      credit_consume_times = #{creditConsumeTimes,jdbcType=INTEGER},
+      max_consume_money_perday = #{maxConsumeMoneyPerday,jdbcType=DECIMAL},
+      credit_consume_money = #{creditConsumeMoney,jdbcType=DECIMAL},
+      single_consume_duration = #{singleConsumeDuration,jdbcType=INTEGER},
+      is_overtime_charge = #{isOvertimeCharge,jdbcType=CHAR},
+      overtime_nocharge_duration = #{overtimeNochargeDuration,jdbcType=INTEGER},
+      single_overtime_duration = #{singleOvertimeDuration,jdbcType=INTEGER},
+      single_overtime_money = #{singleOvertimeMoney,jdbcType=DECIMAL},
+      balance_consume_times = #{balanceConsumeTimes,jdbcType=INTEGER},
+      balance_consume_money = #{balanceConsumeMoney,jdbcType=DECIMAL},
+      last_consume_date = #{lastConsumeDate,jdbcType=DATE},
+      last_date_consume_times = #{lastDateConsumeTimes,jdbcType=INTEGER},
+      last_date_consume_money = #{lastDateConsumeMoney,jdbcType=DECIMAL},
+      cosume_status = #{cosumeStatus,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sales_goods_id, goods_no, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    card_type, card_type_name, wait_days_after_activation, date_activation, member_id, 
+    gender, use_from_date, valid_day, consume_weekdays, consume_start_time, consume_end_time, 
+    consume_sport_ids, consumeAvenueIds, max_consume_times_perday, credit_consume_times, 
+    max_consume_money_perday, credit_consume_money, single_consume_duration, is_overtime_charge, 
+    overtime_nocharge_duration, single_overtime_duration, single_overtime_money, balance_consume_times, 
+    balance_consume_money, last_consume_date, last_date_consume_times, last_date_consume_money, 
+    cosume_status, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_card
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sales_goods_id, goods_no, goods_id, goods_name, goods_sku_id, goods_sku_name, 
+    card_type, card_type_name, wait_days_after_activation, date_activation, member_id, 
+    gender, use_from_date, valid_day, consume_weekdays, consume_start_time, consume_end_time, 
+    consume_sport_ids, consumeAvenueIds, max_consume_times_perday, credit_consume_times, 
+    max_consume_money_perday, credit_consume_money, single_consume_duration, is_overtime_charge, 
+    overtime_nocharge_duration, single_overtime_duration, single_overtime_money, balance_consume_times, 
+    balance_consume_money, last_consume_date, last_date_consume_times, last_date_consume_money, 
+    cosume_status, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_card
+  </select>
+</mapper>

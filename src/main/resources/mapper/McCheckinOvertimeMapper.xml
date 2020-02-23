@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McCheckinOvertimeMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McCheckinOvertime">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="billing_start_time" jdbcType="TIMESTAMP" property="billingStartTime" />
+    <result column="billing_end_time" jdbcType="TIMESTAMP" property="billingEndTime" />
+    <result column="consume_duration" jdbcType="INTEGER" property="consumeDuration" />
+    <result column="over_time_duration" jdbcType="INTEGER" property="overTimeDuration" />
+    <result column="overtime_money" jdbcType="DECIMAL" property="overtimeMoney" />
+    <result column="single_overtime_duration" jdbcType="INTEGER" property="singleOvertimeDuration" />
+    <result column="single_overtime_money" jdbcType="DECIMAL" property="singleOvertimeMoney" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_checkin_overtime
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McCheckinOvertime">
+    insert into mc_checkin_overtime (id, goods_no, billing_start_time, 
+      billing_end_time, consume_duration, over_time_duration, 
+      overtime_money, single_overtime_duration, 
+      single_overtime_money, order_id, is_delete, 
+      create_time, create_user, update_time, 
+      update_user)
+    values (#{id,jdbcType=BIGINT}, #{goodsNo,jdbcType=VARCHAR}, #{billingStartTime,jdbcType=TIMESTAMP}, 
+      #{billingEndTime,jdbcType=TIMESTAMP}, #{consumeDuration,jdbcType=INTEGER}, #{overTimeDuration,jdbcType=INTEGER}, 
+      #{overtimeMoney,jdbcType=DECIMAL}, #{singleOvertimeDuration,jdbcType=INTEGER}, 
+      #{singleOvertimeMoney,jdbcType=DECIMAL}, #{orderId,jdbcType=BIGINT}, #{isDelete,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McCheckinOvertime">
+    update mc_checkin_overtime
+    set goods_no = #{goodsNo,jdbcType=VARCHAR},
+      billing_start_time = #{billingStartTime,jdbcType=TIMESTAMP},
+      billing_end_time = #{billingEndTime,jdbcType=TIMESTAMP},
+      consume_duration = #{consumeDuration,jdbcType=INTEGER},
+      over_time_duration = #{overTimeDuration,jdbcType=INTEGER},
+      overtime_money = #{overtimeMoney,jdbcType=DECIMAL},
+      single_overtime_duration = #{singleOvertimeDuration,jdbcType=INTEGER},
+      single_overtime_money = #{singleOvertimeMoney,jdbcType=DECIMAL},
+      order_id = #{orderId,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_no, billing_start_time, billing_end_time, consume_duration, over_time_duration, 
+    overtime_money, single_overtime_duration, single_overtime_money, order_id, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_checkin_overtime
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_no, billing_start_time, billing_end_time, consume_duration, over_time_duration, 
+    overtime_money, single_overtime_duration, single_overtime_money, order_id, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_checkin_overtime
+  </select>
+</mapper>

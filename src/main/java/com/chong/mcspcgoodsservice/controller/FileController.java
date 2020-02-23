@@ -1,4 +1,4 @@
-package com.chong.mcspcgoodsservice.sales.controller;
+package com.chong.mcspcgoodsservice.controller;
 
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,5 +19,4 @@ public class FileController {
         FileCopyUtils.copy(bytes,saveFile);
         return  saveFile.getAbsolutePath();
     }
-
 }

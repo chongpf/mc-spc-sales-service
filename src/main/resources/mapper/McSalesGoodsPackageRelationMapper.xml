@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McSalesGoodsPackageRelationMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McSalesGoodsPackageRelation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="package_goods_no" jdbcType="BIGINT" property="packageGoodsNo" />
+    <result column="package_goods_id" jdbcType="INTEGER" property="packageGoodsId" />
+    <result column="package_goods_name" jdbcType="VARCHAR" property="packageGoodsName" />
+    <result column="package_goods_sku_id" jdbcType="INTEGER" property="packageGoodsSkuId" />
+    <result column="package_goods_sku_name" jdbcType="VARCHAR" property="packageGoodsSkuName" />
+    <result column="sales_goods_no" jdbcType="BIGINT" property="salesGoodsNo" />
+    <result column="sales_goods_id" jdbcType="INTEGER" property="salesGoodsId" />
+    <result column="sales_goods_name" jdbcType="VARCHAR" property="salesGoodsName" />
+    <result column="sales_goods_sku_id" jdbcType="INTEGER" property="salesGoodsSkuId" />
+    <result column="sales_goods_sku_name" jdbcType="VARCHAR" property="salesGoodsSkuName" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_sales_goods_package_relation
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsPackageRelation">
+    insert into mc_sales_goods_package_relation (id, package_goods_no, package_goods_id, 
+      package_goods_name, package_goods_sku_id, package_goods_sku_name, 
+      sales_goods_no, sales_goods_id, sales_goods_name, 
+      sales_goods_sku_id, sales_goods_sku_name, is_delete, 
+      create_time, create_user, update_time, 
+      update_user)
+    values (#{id,jdbcType=BIGINT}, #{packageGoodsNo,jdbcType=BIGINT}, #{packageGoodsId,jdbcType=INTEGER}, 
+      #{packageGoodsName,jdbcType=VARCHAR}, #{packageGoodsSkuId,jdbcType=INTEGER}, #{packageGoodsSkuName,jdbcType=VARCHAR}, 
+      #{salesGoodsNo,jdbcType=BIGINT}, #{salesGoodsId,jdbcType=INTEGER}, #{salesGoodsName,jdbcType=VARCHAR}, 
+      #{salesGoodsSkuId,jdbcType=INTEGER}, #{salesGoodsSkuName,jdbcType=VARCHAR}, #{isDelete,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McSalesGoodsPackageRelation">
+    update mc_sales_goods_package_relation
+    set package_goods_no = #{packageGoodsNo,jdbcType=BIGINT},
+      package_goods_id = #{packageGoodsId,jdbcType=INTEGER},
+      package_goods_name = #{packageGoodsName,jdbcType=VARCHAR},
+      package_goods_sku_id = #{packageGoodsSkuId,jdbcType=INTEGER},
+      package_goods_sku_name = #{packageGoodsSkuName,jdbcType=VARCHAR},
+      sales_goods_no = #{salesGoodsNo,jdbcType=BIGINT},
+      sales_goods_id = #{salesGoodsId,jdbcType=INTEGER},
+      sales_goods_name = #{salesGoodsName,jdbcType=VARCHAR},
+      sales_goods_sku_id = #{salesGoodsSkuId,jdbcType=INTEGER},
+      sales_goods_sku_name = #{salesGoodsSkuName,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, package_goods_no, package_goods_id, package_goods_name, package_goods_sku_id, 
+    package_goods_sku_name, sales_goods_no, sales_goods_id, sales_goods_name, sales_goods_sku_id, 
+    sales_goods_sku_name, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_package_relation
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, package_goods_no, package_goods_id, package_goods_name, package_goods_sku_id, 
+    package_goods_sku_name, sales_goods_no, sales_goods_id, sales_goods_name, sales_goods_sku_id, 
+    sales_goods_sku_name, is_delete, create_time, create_user, update_time, update_user
+    from mc_sales_goods_package_relation
+  </select>
+</mapper>

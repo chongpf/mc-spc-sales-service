@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McGoodsSkuParamMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McGoodsSkuParam">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_sku_id" jdbcType="INTEGER" property="goodsSkuId" />
+    <result column="sku_param_name" jdbcType="VARCHAR" property="skuParamName" />
+    <result column="sku_param_value" jdbcType="VARCHAR" property="skuParamValue" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_goods_sku_param
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSkuParam">
+    insert into mc_goods_sku_param (id, goods_id, goods_sku_id, 
+      sku_param_name, sku_param_value, is_delete, 
+      create_time, create_user, update_time, 
+      update_user)
+    values (#{id,jdbcType=BIGINT}, #{goodsId,jdbcType=INTEGER}, #{goodsSkuId,jdbcType=INTEGER}, 
+      #{skuParamName,jdbcType=VARCHAR}, #{skuParamValue,jdbcType=VARCHAR}, #{isDelete,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSkuParam">
+    update mc_goods_sku_param
+    set goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_sku_id = #{goodsSkuId,jdbcType=INTEGER},
+      sku_param_name = #{skuParamName,jdbcType=VARCHAR},
+      sku_param_value = #{skuParamValue,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_id, sku_param_name, sku_param_value, is_delete, create_time, 
+    create_user, update_time, update_user
+    from mc_goods_sku_param
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_id, sku_param_name, sku_param_value, is_delete, create_time, 
+    create_user, update_time, update_user
+    from mc_goods_sku_param
+  </select>
+</mapper>

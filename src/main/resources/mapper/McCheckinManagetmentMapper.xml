@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McCheckinManagetmentMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McCheckinManagetment">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_type" jdbcType="INTEGER" property="goodsType" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_sku_id" jdbcType="BIGINT" property="goodsSkuId" />
+    <result column="goods_sku_name" jdbcType="VARCHAR" property="goodsSkuName" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="allow_exit_date" jdbcType="TIMESTAMP" property="allowExitDate" />
+    <result column="consume_date" jdbcType="DATE" property="consumeDate" />
+    <result column="entry_date" jdbcType="TIMESTAMP" property="entryDate" />
+    <result column="exit_date" jdbcType="TIMESTAMP" property="exitDate" />
+    <result column="consume_duration" jdbcType="INTEGER" property="consumeDuration" />
+    <result column="cosume_status" jdbcType="CHAR" property="cosumeStatus" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_checkin_managetment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McCheckinManagetment">
+    insert into mc_checkin_managetment (id, goods_no, goods_id, 
+      goods_type, goods_name, goods_sku_id, 
+      goods_sku_name, member_id, gender, 
+      allow_exit_date, consume_date, entry_date, 
+      exit_date, consume_duration, cosume_status, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{goodsNo,jdbcType=VARCHAR}, #{goodsId,jdbcType=BIGINT}, 
+      #{goodsType,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsSkuId,jdbcType=BIGINT}, 
+      #{goodsSkuName,jdbcType=VARCHAR}, #{memberId,jdbcType=BIGINT}, #{gender,jdbcType=CHAR}, 
+      #{allowExitDate,jdbcType=TIMESTAMP}, #{consumeDate,jdbcType=DATE}, #{entryDate,jdbcType=TIMESTAMP}, 
+      #{exitDate,jdbcType=TIMESTAMP}, #{consumeDuration,jdbcType=INTEGER}, #{cosumeStatus,jdbcType=CHAR}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McCheckinManagetment">
+    update mc_checkin_managetment
+    set goods_no = #{goodsNo,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_type = #{goodsType,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sku_id = #{goodsSkuId,jdbcType=BIGINT},
+      goods_sku_name = #{goodsSkuName,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=BIGINT},
+      gender = #{gender,jdbcType=CHAR},
+      allow_exit_date = #{allowExitDate,jdbcType=TIMESTAMP},
+      consume_date = #{consumeDate,jdbcType=DATE},
+      entry_date = #{entryDate,jdbcType=TIMESTAMP},
+      exit_date = #{exitDate,jdbcType=TIMESTAMP},
+      consume_duration = #{consumeDuration,jdbcType=INTEGER},
+      cosume_status = #{cosumeStatus,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_no, goods_id, goods_type, goods_name, goods_sku_id, goods_sku_name, 
+    member_id, gender, allow_exit_date, consume_date, entry_date, exit_date, consume_duration, 
+    cosume_status, is_delete, create_time, create_user, update_time, update_user
+    from mc_checkin_managetment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_no, goods_id, goods_type, goods_name, goods_sku_id, goods_sku_name, 
+    member_id, gender, allow_exit_date, consume_date, entry_date, exit_date, consume_duration, 
+    cosume_status, is_delete, create_time, create_user, update_time, update_user
+    from mc_checkin_managetment
+  </select>
+</mapper>

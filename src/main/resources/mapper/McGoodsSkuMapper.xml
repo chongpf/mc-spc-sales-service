@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McGoodsSkuMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McGoodsSku">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_sku_name" jdbcType="VARCHAR" property="goodsSkuName" />
+    <result column="is_default" jdbcType="CHAR" property="isDefault" />
+    <result column="sales_price" jdbcType="DECIMAL" property="salesPrice" />
+    <result column="sales_unit" jdbcType="VARCHAR" property="salesUnit" />
+    <result column="sales_from_date" jdbcType="TIMESTAMP" property="salesFromDate" />
+    <result column="sales_to_date" jdbcType="TIMESTAMP" property="salesToDate" />
+    <result column="sales_count" jdbcType="INTEGER" property="salesCount" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="sales_channel_id" jdbcType="INTEGER" property="salesChannelId" />
+    <result column="sales_platform_id" jdbcType="INTEGER" property="salesPlatformId" />
+    <result column="enable_goods_rule" jdbcType="CHAR" property="enableGoodsRule" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_goods_sku
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSku">
+    insert into mc_goods_sku (id, goods_id, goods_sku_name, 
+      is_default, sales_price, sales_unit, 
+      sales_from_date, sales_to_date, sales_count, 
+      stock, sales_channel_id, sales_platform_id, 
+      enable_goods_rule, is_delete, create_time, 
+      create_user, update_time, update_user
+      )
+    values (#{id,jdbcType=BIGINT}, #{goodsId,jdbcType=INTEGER}, #{goodsSkuName,jdbcType=VARCHAR}, 
+      #{isDefault,jdbcType=CHAR}, #{salesPrice,jdbcType=DECIMAL}, #{salesUnit,jdbcType=VARCHAR}, 
+      #{salesFromDate,jdbcType=TIMESTAMP}, #{salesToDate,jdbcType=TIMESTAMP}, #{salesCount,jdbcType=INTEGER}, 
+      #{stock,jdbcType=INTEGER}, #{salesChannelId,jdbcType=INTEGER}, #{salesPlatformId,jdbcType=INTEGER}, 
+      #{enableGoodsRule,jdbcType=CHAR}, #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McGoodsSku">
+    update mc_goods_sku
+    set goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_sku_name = #{goodsSkuName,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=CHAR},
+      sales_price = #{salesPrice,jdbcType=DECIMAL},
+      sales_unit = #{salesUnit,jdbcType=VARCHAR},
+      sales_from_date = #{salesFromDate,jdbcType=TIMESTAMP},
+      sales_to_date = #{salesToDate,jdbcType=TIMESTAMP},
+      sales_count = #{salesCount,jdbcType=INTEGER},
+      stock = #{stock,jdbcType=INTEGER},
+      sales_channel_id = #{salesChannelId,jdbcType=INTEGER},
+      sales_platform_id = #{salesPlatformId,jdbcType=INTEGER},
+      enable_goods_rule = #{enableGoodsRule,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_name, is_default, sales_price, sales_unit, sales_from_date, 
+    sales_to_date, sales_count, stock, sales_channel_id, sales_platform_id, enable_goods_rule, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_goods_sku
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, goods_id, goods_sku_name, is_default, sales_price, sales_unit, sales_from_date, 
+    sales_to_date, sales_count, stock, sales_channel_id, sales_platform_id, enable_goods_rule, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_goods_sku
+  </select>
+</mapper>

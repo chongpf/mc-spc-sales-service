@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McOrderMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="order_date" jdbcType="TIMESTAMP" property="orderDate" />
+    <result column="order_money" jdbcType="DECIMAL" property="orderMoney" />
+    <result column="sales_channel" jdbcType="INTEGER" property="salesChannel" />
+    <result column="sales_platform" jdbcType="INTEGER" property="salesPlatform" />
+    <result column="payment_type" jdbcType="CHAR" property="paymentType" />
+    <result column="payment_date" jdbcType="TIMESTAMP" property="paymentDate" />
+    <result column="payment_money" jdbcType="DECIMAL" property="paymentMoney" />
+    <result column="payment_point" jdbcType="INTEGER" property="paymentPoint" />
+    <result column="payment_status" jdbcType="CHAR" property="paymentStatus" />
+    <result column="debit_acount" jdbcType="VARCHAR" property="debitAcount" />
+    <result column="cridet_acount" jdbcType="VARCHAR" property="cridetAcount" />
+    <result column="payment_channel" jdbcType="INTEGER" property="paymentChannel" />
+    <result column="payment_method" jdbcType="INTEGER" property="paymentMethod" />
+    <result column="user_pay_gate" jdbcType="INTEGER" property="userPayGate" />
+    <result column="third_part_order_no" jdbcType="VARCHAR" property="thirdPartOrderNo" />
+    <result column="refound_status" jdbcType="CHAR" property="refoundStatus" />
+    <result column="total_refound_money" jdbcType="DECIMAL" property="totalRefoundMoney" />
+    <result column="express_delivery_status" jdbcType="CHAR" property="expressDeliveryStatus" />
+    <result column="goods_count" jdbcType="INTEGER" property="goodsCount" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McOrder">
+    insert into mc_order (id, member_id, order_type, 
+      order_date, order_money, sales_channel, 
+      sales_platform, payment_type, payment_date, 
+      payment_money, payment_point, payment_status, 
+      debit_acount, cridet_acount, payment_channel, 
+      payment_method, user_pay_gate, third_part_order_no, 
+      refound_status, total_refound_money, express_delivery_status, 
+      goods_count, is_delete, create_time, 
+      create_user, update_time, update_user
+      )
+    values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{orderType,jdbcType=INTEGER}, 
+      #{orderDate,jdbcType=TIMESTAMP}, #{orderMoney,jdbcType=DECIMAL}, #{salesChannel,jdbcType=INTEGER}, 
+      #{salesPlatform,jdbcType=INTEGER}, #{paymentType,jdbcType=CHAR}, #{paymentDate,jdbcType=TIMESTAMP}, 
+      #{paymentMoney,jdbcType=DECIMAL}, #{paymentPoint,jdbcType=INTEGER}, #{paymentStatus,jdbcType=CHAR}, 
+      #{debitAcount,jdbcType=VARCHAR}, #{cridetAcount,jdbcType=VARCHAR}, #{paymentChannel,jdbcType=INTEGER}, 
+      #{paymentMethod,jdbcType=INTEGER}, #{userPayGate,jdbcType=INTEGER}, #{thirdPartOrderNo,jdbcType=VARCHAR}, 
+      #{refoundStatus,jdbcType=CHAR}, #{totalRefoundMoney,jdbcType=DECIMAL}, #{expressDeliveryStatus,jdbcType=CHAR}, 
+      #{goodsCount,jdbcType=INTEGER}, #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McOrder">
+    update mc_order
+    set member_id = #{memberId,jdbcType=BIGINT},
+      order_type = #{orderType,jdbcType=INTEGER},
+      order_date = #{orderDate,jdbcType=TIMESTAMP},
+      order_money = #{orderMoney,jdbcType=DECIMAL},
+      sales_channel = #{salesChannel,jdbcType=INTEGER},
+      sales_platform = #{salesPlatform,jdbcType=INTEGER},
+      payment_type = #{paymentType,jdbcType=CHAR},
+      payment_date = #{paymentDate,jdbcType=TIMESTAMP},
+      payment_money = #{paymentMoney,jdbcType=DECIMAL},
+      payment_point = #{paymentPoint,jdbcType=INTEGER},
+      payment_status = #{paymentStatus,jdbcType=CHAR},
+      debit_acount = #{debitAcount,jdbcType=VARCHAR},
+      cridet_acount = #{cridetAcount,jdbcType=VARCHAR},
+      payment_channel = #{paymentChannel,jdbcType=INTEGER},
+      payment_method = #{paymentMethod,jdbcType=INTEGER},
+      user_pay_gate = #{userPayGate,jdbcType=INTEGER},
+      third_part_order_no = #{thirdPartOrderNo,jdbcType=VARCHAR},
+      refound_status = #{refoundStatus,jdbcType=CHAR},
+      total_refound_money = #{totalRefoundMoney,jdbcType=DECIMAL},
+      express_delivery_status = #{expressDeliveryStatus,jdbcType=CHAR},
+      goods_count = #{goodsCount,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, member_id, order_type, order_date, order_money, sales_channel, sales_platform, 
+    payment_type, payment_date, payment_money, payment_point, payment_status, debit_acount, 
+    cridet_acount, payment_channel, payment_method, user_pay_gate, third_part_order_no, 
+    refound_status, total_refound_money, express_delivery_status, goods_count, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, member_id, order_type, order_date, order_money, sales_channel, sales_platform, 
+    payment_type, payment_date, payment_money, payment_point, payment_status, debit_acount, 
+    cridet_acount, payment_channel, payment_method, user_pay_gate, third_part_order_no, 
+    refound_status, total_refound_money, express_delivery_status, goods_count, is_delete, 
+    create_time, create_user, update_time, update_user
+    from mc_order
+  </select>
+</mapper>

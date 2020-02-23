@@ -1,4 +1,4 @@
-package com.chong.mcspcgoodsservice.sales.controller;
+package com.chong.mcspcgoodsservice.controller;
 
 import com.chong.common.entity.ResponseData;
 import com.chong.common.util.ResponseUtil;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/sales")
-public class SalesController {
+@RequestMapping("/test/order")
+public class TestOrderController {
 
     private RestTemplate restTemplate;
 
@@ -24,8 +24,8 @@ public class SalesController {
     private String instanceId;
 
     @Autowired
-    public SalesController(RestTemplate restTemplate,
-                           OrderRemoteClient orderRemoteClient
+    public TestOrderController(RestTemplate restTemplate,
+                               OrderRemoteClient orderRemoteClient
                            ){
         this.restTemplate = restTemplate;
         this.orderRemoteClient = orderRemoteClient;

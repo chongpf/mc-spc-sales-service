@@ -27,7 +27,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.chong.msspcgoodsservice.*.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.chong.msspcsalesservice.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

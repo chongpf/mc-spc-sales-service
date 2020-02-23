@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chong.mcspcgoodsservice.dao.McCardBizHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.chong.mcspcgoodsservice.entity.McCardBizHistory">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="biz_date" jdbcType="TIMESTAMP" property="bizDate" />
+    <result column="biz_type" jdbcType="INTEGER" property="bizType" />
+    <result column="card_no" jdbcType="BIGINT" property="cardNo" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="order_money" jdbcType="DECIMAL" property="orderMoney" />
+    <result column="payment_point" jdbcType="INTEGER" property="paymentPoint" />
+    <result column="debit_acount" jdbcType="VARCHAR" property="debitAcount" />
+    <result column="cridet_acount" jdbcType="VARCHAR" property="cridetAcount" />
+    <result column="before_balance_money" jdbcType="DECIMAL" property="beforeBalanceMoney" />
+    <result column="before_balance_times" jdbcType="INTEGER" property="beforeBalanceTimes" />
+    <result column="before_valid_day" jdbcType="TIMESTAMP" property="beforeValidDay" />
+    <result column="after_balance_money" jdbcType="DECIMAL" property="afterBalanceMoney" />
+    <result column="after_balance_times" jdbcType="INTEGER" property="afterBalanceTimes" />
+    <result column="after_valid_day" jdbcType="TIMESTAMP" property="afterValidDay" />
+    <result column="notes" jdbcType="VARCHAR" property="notes" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mc_card_biz_history
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chong.mcspcgoodsservice.entity.McCardBizHistory">
+    insert into mc_card_biz_history (id, member_id, gender, 
+      biz_date, biz_type, card_no, 
+      order_id, order_money, payment_point, 
+      debit_acount, cridet_acount, before_balance_money, 
+      before_balance_times, before_valid_day, after_balance_money, 
+      after_balance_times, after_valid_day, notes, 
+      is_delete, create_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{gender,jdbcType=CHAR}, 
+      #{bizDate,jdbcType=TIMESTAMP}, #{bizType,jdbcType=INTEGER}, #{cardNo,jdbcType=BIGINT}, 
+      #{orderId,jdbcType=BIGINT}, #{orderMoney,jdbcType=DECIMAL}, #{paymentPoint,jdbcType=INTEGER}, 
+      #{debitAcount,jdbcType=VARCHAR}, #{cridetAcount,jdbcType=VARCHAR}, #{beforeBalanceMoney,jdbcType=DECIMAL}, 
+      #{beforeBalanceTimes,jdbcType=INTEGER}, #{beforeValidDay,jdbcType=TIMESTAMP}, #{afterBalanceMoney,jdbcType=DECIMAL}, 
+      #{afterBalanceTimes,jdbcType=INTEGER}, #{afterValidDay,jdbcType=TIMESTAMP}, #{notes,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.chong.mcspcgoodsservice.entity.McCardBizHistory">
+    update mc_card_biz_history
+    set member_id = #{memberId,jdbcType=BIGINT},
+      gender = #{gender,jdbcType=CHAR},
+      biz_date = #{bizDate,jdbcType=TIMESTAMP},
+      biz_type = #{bizType,jdbcType=INTEGER},
+      card_no = #{cardNo,jdbcType=BIGINT},
+      order_id = #{orderId,jdbcType=BIGINT},
+      order_money = #{orderMoney,jdbcType=DECIMAL},
+      payment_point = #{paymentPoint,jdbcType=INTEGER},
+      debit_acount = #{debitAcount,jdbcType=VARCHAR},
+      cridet_acount = #{cridetAcount,jdbcType=VARCHAR},
+      before_balance_money = #{beforeBalanceMoney,jdbcType=DECIMAL},
+      before_balance_times = #{beforeBalanceTimes,jdbcType=INTEGER},
+      before_valid_day = #{beforeValidDay,jdbcType=TIMESTAMP},
+      after_balance_money = #{afterBalanceMoney,jdbcType=DECIMAL},
+      after_balance_times = #{afterBalanceTimes,jdbcType=INTEGER},
+      after_valid_day = #{afterValidDay,jdbcType=TIMESTAMP},
+      notes = #{notes,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, member_id, gender, biz_date, biz_type, card_no, order_id, order_money, 
+    payment_point, debit_acount, cridet_acount, before_balance_money, before_balance_times, 
+    before_valid_day, after_balance_money, after_balance_times, after_valid_day, notes, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_card_biz_history
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, member_id, gender, biz_date, biz_type, card_no, order_id, order_money, 
+    payment_point, debit_acount, cridet_acount, before_balance_money, before_balance_times, 
+    before_valid_day, after_balance_money, after_balance_times, after_valid_day, notes, 
+    is_delete, create_time, create_user, update_time, update_user
+    from mc_card_biz_history
+  </select>
+</mapper>
