@@ -74,7 +74,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>2.10.0</version>
         </dependency>
         <!--开启spring data jpa使用repository接口进行数据操作-->
         <dependency>
@@ -108,7 +108,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>2.10.0</version>
         </dependency>
     </dependencies>
 
